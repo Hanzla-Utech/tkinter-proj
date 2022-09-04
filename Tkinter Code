@@ -1,0 +1,118 @@
+#task 1
+import tkinter as tk
+from tkinter import *
+
+register = tk.Tk()
+register.title('Registration Form')
+register.geometry('600x250')
+register.configure(bg = '#D3D3D3')
+
+
+title = Label(register,text = 'Registration Form', fg = 'black',bg = '#D3D3D3', font = ('sans-serif',20))
+title.place(x = 20,y = 10)
+
+fn = Label(register,text = 'Full name', fg = 'black',bg = '#D3D3D3', font = ('sans-serif',10))
+fn.place(x= 20, y = 60)
+
+em = Label(register,text = 'E-mail', fg = 'black',bg = '#D3D3D3', font = ('sans-serif',10))
+em.place(x= 20, y = 85)
+
+gn = Label(register,text = 'Gender', fg = 'black',bg = '#D3D3D3', font = ('sans-serif',10))
+gn.place(x= 20, y = 110)
+
+cn = Label(register,text = 'Country', fg = 'black',bg = '#D3D3D3', font = ('sans-serif',10))
+cn.place(x= 20, y = 135)
+
+pg = Label(register,text = 'Programming', fg = 'black',bg = '#D3D3D3', font = ('sans-serif',10))
+pg.place(x= 20, y = 160)
+
+select = IntVar()
+r1 = tk.Radiobutton(register, text = 'Java',value = 1, variable = select, bg = '#D3D3D3')
+r1.place(x = 150, y = 160)
+
+r2 = tk.Radiobutton(register, text = 'Python',value = 2, variable = select, bg = '#D3D3D3')
+r2.place(x = 210, y = 160)
+
+select2 = IntVar()
+r3 = tk.Radiobutton(register, text = 'Male', value = 1, variable = select2, bg = '#D3D3D3')
+r3.place(x = 150, y = 110)
+
+r4 = tk.Radiobutton(register, text = 'Female',value = 2, variable = select2, bg = '#D3D3D3')
+r4.place(x = 210, y = 110)
+
+e1 = Entry(register, bg = 'white', width =35)
+e1.place(x = 156, y = 60)
+
+e2 = Entry(register, bg = 'white', width =35)
+e2.place(x = 156, y = 85)
+
+countries = ['Afghanistan',
+'Albania',
+'Algeria',
+'Andorra',
+'Angola',
+'Antigua & Deps',
+'Argentina',
+'Armenia',
+'Australia',
+'Austria',
+'Azerbaijan',
+'Bahamas',
+'Bahrain',
+'Bangladesh',
+'Barbados',
+'Belarus',
+'Belgium',
+'Belize',
+'Benin',
+'Bhutan',
+'Bolivia',
+'Bosnia and Herzegovina',
+'Botswana',
+'Brazil',
+'Brunei',
+'Bulgaria',
+'Burkina',
+'Burundi',
+'Cambodia',
+'Cameroon',
+'Canada',
+'Cape Verde',
+'Central African Rep',
+'Chad',
+'Chile',
+'China',
+'Colombia',
+'Comoros',
+'Congo',
+'Costa Rica',
+'Pakistan',
+'Cuba',
+'Cyprus',
+'CzechRepulic',
+'Denmark',
+'Djibouti',
+'Dominica',
+'Dominican Republic',
+'East Timor',
+'Ecuador',
+'Egypt','USA','England','Germany','Russia','Palestine','Qatar','Saudi Arabia','Nepal','Spain'
+]
+
+country_var = tk.StringVar(value=countries)
+
+cnbox = tk.Listbox(register, listvariable=country_var, height=1, width = 15, selectmode='extended')
+
+cnbox.place(x = 150, y = 135)
+
+def succ_window():
+    success = Toplevel(register)
+    success.title('Success!')
+    success.geometry('600x250')
+    success.configure(bg = '#D3D3D3')
+    success_label = Label(success,text = 'Your registration has been successful!', fg = 'green',bg = '#D3D3D3', font = (20))
+    success_label.place(x = 170, y = 100)
+sub_btn = tk.Button(register, text = 'Submit',fg = 'white', bg = 'red', command = succ_window)
+sub_btn.place(x= 20, y = 200)
+
+register.mainloop()

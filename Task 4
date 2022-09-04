@@ -1,0 +1,8 @@
+#task 4
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+sales = pd.read_csv('sales.csv')
+sales_asia = sales[sales['Region'] == 'Asia']
+sales_asia.plot.bar(x = 'Country', y = 'Units Sold')
